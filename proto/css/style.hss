@@ -2,16 +2,103 @@ var mark = {
 	outline : 1px solid red;
 }
 
-#page {
+body {
+	font-family: 'Nunito', sans-serif;
+	font-weight : 300;
+}
+
+b, strong {
+	font-weight : 400;
+}
+
+h1,h2,h3 {
+	font-family: 'Dosis', sans-serif;
+	font-weight : 400;
+}
+
+ul {
+	list-style : square;
+}
+
+h1 {
+	font-weight:300;
+}
+
+a.anch {
+	position : absolute;
+	margin-top : -100px;
+}
+
+.section {
+	
+	.container {
+		position : relative;
+		padding-top : 30px;
+		padding-bottom : 40px;
+	}
+	
+	.container :first-child {
+		margin-top : 0px;
+	}
+	.container :last-child {
+		margin-bottom : 0px;
+	}
+
+	blockquote {
+		text-align : left;
+		margin : 50px 20px;
+	}
+	
+	.row {
+		h3 {
+			text-align : center;
+			font-weight : 300;
+		}
+		text-align : justify;
+	}
+
+	.row.component {
+		margin-bottom : 20px;
+		.title {
+			text-align : right;
+			font-weight : 400;
+		}
+	}
+
+}
+
+.section.black {
+	background : linear-gradient(#222,#333);
+	box-shadow : 0px 0px 4px #000;
+	color : white;
+	a {
+		color : #6CF;
+	}
+}
+
+.section.footer {
+	background : linear-gradient(#222,#111);
+	text-align : center;
+	color : #CCC;
+	.container {
+		font-size : 12px;
+		padding : 3px;
+	}
+}
+
+.section.nav {
+	.container {
+		padding : 0;
+	}
+}
+
+.section.nav+.section .container {
 	padding-top : 60px;
 }
 
-#page.home {
+.section.head {
+	text-align : center;
 
-	.head {
-		text-align : center;
-	}
-	
 	h1 {
 		color : #333;
 		b {
@@ -21,11 +108,11 @@ var mark = {
 		
 	p.tagLine {
 		margin-top : 20px;
-		font-style : italic;
-		color : #666;
-		font-size : 140%;
+		font-weight : 200;
+		color : #999;
+		font-size : 18px;
 		b {
-			color : #333;
+			color : #666;
 		}
 	}
 	
@@ -44,26 +131,10 @@ var mark = {
 	a.start {
 		margin-top : 50px;
 	}
+}
 
-	blockquote {
-		text-align : left;
-		margin : 50px 20px;
-	}
-	
-	.row.component {
-		
-		margin-bottom : 20px;
-		
-		.section {
-			text-align : right;
-			font-weight : bold;
-		}
-	}
-	
-	.row {
-		h3 {
-			text-align : center;
-		}
-		text-align : justify;
+.section.hf {
+	ul li {
+		margin-bottom : 5px;
 	}
 }

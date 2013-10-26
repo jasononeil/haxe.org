@@ -1,25 +1,111 @@
-#page {
+body {
+	font-family : "Nunito", sans-serif;
+	font-weight : 300;
+}
+b, strong {
+	font-weight : 400;
+}
+h1, h2, h3 {
+	font-family : "Dosis", sans-serif;
+	font-weight : 400;
+}
+ul {
+	list-style : square;
+}
+h1 {
+	font-weight : 300;
+}
+a.anch {
+	position : absolute;
+	margin-top : -100px;
+}
+.section .container {
+	position : relative;
+	padding-top : 30px;
+	padding-bottom : 40px;
+}
+.section .container :first-child {
+	margin-top : 0px;
+}
+.section .container :last-child {
+	margin-bottom : 0px;
+}
+.section blockquote {
+	text-align : left;
+	margin : 50px 20px;
+}
+.section .row {
+	text-align : justify;
+}
+.section .row h3 {
+	text-align : center;
+	font-weight : 300;
+}
+.section .row.component {
+	margin-bottom : 20px;
+}
+.section .row.component .title {
+	text-align : right;
+	font-weight : 400;
+}
+.section.black {
+	background : #222;
+	background : -moz-linear-gradient(top,#222 0%,#333 100%);
+	background : -o-linear-gradient(top,#222 0%,#333 100%);
+	background : -webkit-gradient(linear,left top,left bottom,color-stop(0%,#222),color-stop(100%,#333));
+	background : linear-gradient(#222,#333);
+	background-color : transparent\9;
+	filter : progid:DXImageTransform.Microsoft.gradient(startColorstr=#222, endColorstr=#333);
+	zoom : 1;
+	-moz-box-shadow : 0px 0px 4px #000;
+	-webkit-box-shadow : 0px 0px 4px #000;
+	box-shadow : 0px 0px 4px #000;
+	color : white;
+}
+.section.black a {
+	color : #6CF;
+}
+.section.footer {
+	background : #222;
+	background : -moz-linear-gradient(top,#222 0%,#111 100%);
+	background : -o-linear-gradient(top,#222 0%,#111 100%);
+	background : -webkit-gradient(linear,left top,left bottom,color-stop(0%,#222),color-stop(100%,#111));
+	background : linear-gradient(#222,#111);
+	background-color : transparent\9;
+	filter : progid:DXImageTransform.Microsoft.gradient(startColorstr=#222, endColorstr=#111);
+	zoom : 1;
+	text-align : center;
+	color : #CCC;
+}
+.section.footer .container {
+	font-size : 12px;
+	padding : 3px;
+}
+.section.nav .container {
+	padding : 0;
+}
+.section.nav+.section .container {
 	padding-top : 60px;
 }
-#page.home .head {
+.section.head {
 	text-align : center;
 }
-#page.home h1 {
+.section.head h1 {
 	color : #333;
 }
-#page.home h1 b {
+.section.head h1 b {
 	color : #000;
 }
-#page.home p.tagLine {
+.section.head p.tagLine {
 	margin-top : 20px;
-	font-style : italic;
+	font-weight : 200;
+	color : #999;
+	font-size : 18px;
+}
+.section.head p.tagLine b {
 	color : #666;
-	font-size : 140%;
 }
-#page.home p.tagLine b {
-	color : #333;
-}
-#page.home ul.logos li {
+.section.head ul.logos li {
 	list-style : none;
 	width : 100px;
 	display : inline-block;
@@ -27,26 +113,12 @@
 	*display : inline;
 	text-align : center;
 }
-#page.home ul.logos li img {
+.section.head ul.logos li img {
 	max-height : 64px;
 }
-#page.home a.start {
+.section.head a.start {
 	margin-top : 50px;
 }
-#page.home blockquote {
-	text-align : left;
-	margin : 50px 20px;
-}
-#page.home .row.component {
-	margin-bottom : 20px;
-}
-#page.home .row.component .section {
-	text-align : right;
-	font-weight : bold;
-}
-#page.home .row {
-	text-align : justify;
-}
-#page.home .row h3 {
-	text-align : center;
+.section.hf ul li {
+	margin-bottom : 5px;
 }
