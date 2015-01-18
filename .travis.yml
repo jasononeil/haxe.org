@@ -12,6 +12,8 @@ env:
 matrix:
   fast_finish: true
 before_install:
+- env
+- echo $encrypted_c7c1240b42e4_iv
 - openssl aes-256-cbc -K $encrypted_c7c1240b42e4_key -iv $encrypted_c7c1240b42e4_iv
   -in deploy_key.enc -out deploy_key -d
 - travis_retry git clone --depth=50 --branch=master git://github.com/waneck/travis-hx.git
