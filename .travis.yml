@@ -6,18 +6,15 @@ branches:
   - travis
 env:
   HAXE_VER: 3.1.3
-  global: 
+  global:
+    secure: LZkP52SwAyTUUIcAPHBzzUIvr7lzB5dPW6SlRWguFaAR32bvNqBvVBoejcis6vR3Oo4e0uiOzlnkNMm/uiDHV/tTKa6Aa2onBCXyGlXw+/XX4p/KzqZuXeRggoO2OxZnoGFQUE1hbc9LgDJ9ToYlLJpqYC8u2DJiXWEMWUAk1G0=
   matrix:
   - TARGET=neko
 matrix:
   fast_finish: true
 before_install:
-- env
-- echo $encrypted_c7c1240b42e4_iv
-- openssl aes-256-cbc -K $encrypted_c7c1240b42e4_key -iv $encrypted_c7c1240b42e4_iv
-  -in deploy_key.enc -out deploy_key -d
-- travis_retry git clone --depth=50 --branch=master git://github.com/waneck/travis-hx.git
-  ~/travis-hx
+- travis_retry git clone --depth=50 --branch=master git://github.com/waneck/travis-hx.git ~/travis-hx
+- openssl aes-256-cbc -k "$super_secret_password" -in deploy_key.enc -out deploy_key -d
 install:
 - ~/travis-hx/setup.sh
 - cd $TRAVIS_BUILD_DIR
