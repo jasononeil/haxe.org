@@ -25,10 +25,12 @@ before_install:
   - eval `ssh-agent -s`
   - ssh-add deploy_key
   # Configure git
-  - git config --global user.name "$GIT_NAME"
-  - git config --global user.email "$GIT_EMAIL"
+  - git config --global user.name "TravisCI"
+  - git config --global user.email "travisci@haxe.org"
 
-install: # setup the target
+install:
+  # setup the libraries required to build
+  - cd $TRAVIS_BUILD_DIR
   - yes | haxelib install ufront
   - yes | haxelib install all
   # And just to make sure we have the right versions...
@@ -37,6 +39,7 @@ install: # setup the target
 
 script:
   - cd $TRAVIS_BUILD_DIR
+  # Create "doc/" directory so build succeeds.
   - mkdir doc
   # We don't really have unit tests for the website yet.  Just test that a built works.
   - haxelib run ufront build
