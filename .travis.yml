@@ -1,7 +1,6 @@
-# example travis.yml haxe configuration
-language: c # change this to objective-c to test on a mac machine
+language: php
 
-# Based on instructions from:
+# Key decryption based on instructions at:
 # http://pghalliday.com/github/ssh/travis-ci/2014/09/19/auto-build-and-deploy-github-pages-with-travis-ci.html
 
 branches:
@@ -10,34 +9,31 @@ branches:
     - staging
     - travis
 
-env:
-  HAXE_VER: "3.1.3"
-  #  - unset/empty or "latest": get latest from hxbuilds
-  #  - 3.1.3 or 3.1.2: get them from hxbuilds
-  #  - other: build from git
-  global:
-  matrix:
-    - TARGET=neko 
-      # optional: FILENAME
-
-matrix:
-  fast_finish: true
-
-before_install: # clone travis-hx repo
-  - travis_retry git clone --depth=50 --branch=master git://github.com/waneck/travis-hx.git ~/travis-hx
+before_install:
+  # Install haxe 3.1.3
+  - sudo apt-get update
+  - sudo apt-get install python-software-properties -y # for the next command
+  - sudo add-apt-repository ppa:eyecreate/haxe -y
+  - sudo apt-get update
+  - sudo apt-get install haxe -y
+  # Setup haxelib
+  - mkdir ~/haxelib
+  - haxelib setup ~/haxelib
+  # Decrypt our SSH key
   - openssl aes-256-cbc -K $encrypted_c7c1240b42e4_key -iv $encrypted_c7c1240b42e4_iv -in deploy_key.enc -out deploy_key -d
   - chmod 600 deploy_key
   - eval `ssh-agent -s`
   - ssh-add deploy_key
+  # Configure git
   - git config --global user.name "$GIT_NAME"
   - git config --global user.email "$GIT_EMAIL"
 
 install: # setup the target
-  - ~/travis-hx/setup.sh
-  - cd $TRAVIS_BUILD_DIR
   - yes | haxelib install ufront
   - yes | haxelib install all
+  # And just to make sure we have the right versions...
   - haxe
+  - haxelib list
 
 script:
   - cd $TRAVIS_BUILD_DIR
