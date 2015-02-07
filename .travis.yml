@@ -37,6 +37,7 @@ install: # setup the target
 
 script:
   - cd $TRAVIS_BUILD_DIR
+  - mkdir doc
   # We don't really have unit tests for the website yet.  Just test that a built works.
   - haxelib run ufront build
 

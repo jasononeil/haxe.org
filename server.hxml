@@ -12,7 +12,7 @@
 # Neko
 --remap php:neko
 -neko www/index.n
--xml dox/neko.xml
+-xml doc/neko.xml
 
 --next
 
@@ -20,4 +20,4 @@
 --remap neko:php
 --php-lib php
 -php www
--xml dox/php.xml
+-xml doc/php.xml
